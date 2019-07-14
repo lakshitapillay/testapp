@@ -1,0 +1,30 @@
+<h1>Total User Count : {{count}} </h1>
+<br>
+<h1>Daily Registered </h1>
+{{#each dailyusers}}
+
+<h1>{{name}}</h1>
+<h3>{{email}}</h3>
+<h3>{{standard}}</h3>
+
+{{/each}}
+
+{{#if dailyusers}}
+<form action="/users" method="POST">
+    <label for="startdate">Starting Date</label>
+    <input type="date" name="startdate" value = {{startdate}}>
+    <label for="enddate">Ending Date</label>
+    <input type="date" name="enddate" value= {{enddate}}>
+    <button type="submit">Submit</button>
+</form>
+{{/if}}
+
+{{#each users}}
+<h1>{{name}}</h1>
+<h3>{{email}}</h3>
+<h3>{{standard}}</h3>
+<h3>{{createdOn}}</h3>
+{{/each}}
+
+
+
