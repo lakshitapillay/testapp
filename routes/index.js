@@ -26,7 +26,7 @@ router.get('/',(req, res) => {
             console.log(err);
         });
     */
-    
+    dailyusers= [];
     User.collection.count({}, (err, count) => {
         if(err){
             console.log(err);
