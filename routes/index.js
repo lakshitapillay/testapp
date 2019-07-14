@@ -61,7 +61,11 @@ router.get('/',(req, res) => {
 
 router.post('/users', (req, res) => {
     var a = new Date(req.body.startdate);
+    a = new Date(a.getTime() + a.getTimezoneOffset() * 60 * 1000);
     var b = new Date(req.body.enddate);
+    b = new Date(b.getTime() + b.getTimezoneOffset() * 60 * 1000);
+    b = new Date(b.getTime() + 24 * 60 * 60 * 1000);
+
     User.find({createdOn:{$gte:a, $lt:b}})
         .then( users => {
             res.render('data', {
