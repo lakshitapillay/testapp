@@ -41,11 +41,9 @@ router.get('/',(req, res) => {
         .then( users => {
             
             users.forEach( user => {
-                if(moment(user.createdOn).format('YYYY MM DD') == moment().format('YYYY MM DD')){
-                    /*console.log(moment(user.createdOn).format('YYYY MM DD'));
-                    console.log(moment().format('YYYY MM DD'));
-                    console.log(user.createdOn);*/
-                    var currentdate = new Date();
+                console.log(moment(user.createdOn).format('YYYY MM DD'))
+                console.log(date)
+                if(moment(user.createdOn).format('YYYY MM DD') == date){
                     dailyusers.push(user);
                 }
             })
@@ -72,6 +70,9 @@ router.post('/users', (req, res) => {
                 users: users,
                 count: totalcount
             })
+        })
+        .catch(err => {
+            console.log(err);
         })
 });
 
