@@ -4,6 +4,9 @@ const mongoose = require('mongoose');
 const moment = require('moment');
 const bodyParser = require('body-parser');
 
+//deprecation warning
+mongoose.set('useNewUrlParser', true);
+
 //load database
 const db = require('./config/keys').MONGOURI;
 mongoose.connect(db)
