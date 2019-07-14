@@ -6,7 +6,9 @@ const bodyParser = require('body-parser');
 
 //load database
 const db = require('./config/keys').MONGOURI;
-mongoose.connect(db, console.log('MongoDB Connected'));
+mongoose.connect(db)
+    .then(() => console.log('MongoDB Connected'))
+    .catch( err => console.log(err));
 
 //load routes
 const index = require('./routes/index');
